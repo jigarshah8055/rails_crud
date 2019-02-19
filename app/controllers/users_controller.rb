@@ -1,6 +1,7 @@
 # Controller File
 class UsersController < ApplicationController
   before_action :user_details, only: %i[show update edit destroy]
+
   def index
     @users = User.all
   end
@@ -16,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -38,5 +41,6 @@ class UsersController < ApplicationController
 
   def user_details
     @user = User.find_by(id: params[:id])
+    
   end
 end
